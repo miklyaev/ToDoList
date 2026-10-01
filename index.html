@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ToDoList</title>
+  <link rel="stylesheet" href="./src/styles/main.css" />
+  <script type="module" src="./src/main.js"></script>
+</head>
+
+<body>
+  <main id="app">
+    <section id="task-list-page">
+      <section class="control-panel" aria-labelledby="page-title">
+        <div class="control-panel__heading">
+          <p class="control-panel__eyebrow">Планирование</p>
+        </div>
+        <a class="control-panel__button" href="#new-task" title="Открыть форму создания задачи">Добавить задачу</a>
+        <div class="search-field">
+          <label class="visually-hidden" for="task-search">Поиск задач</label>
+          <input class="control-panel__input search-field__input" id="task-search" name="search" type="search"
+            placeholder="Поиск задач" autocomplete="off" title="Найти задачи по названию" />
+        </div>
+      </section>
+
+      <section class="task-list" aria-labelledby="task-list-title">
+        <div class="task-list__heading">
+          <h2 id="task-list-title">Мои задачи <span class="task-list__count">0</span></h2>
+          <span class="task-list__summary">0 осталось</span>
+        </div>
+        <p class="task-list__empty" id="task-list-empty">Пока нет задач. Добавьте первую задачу выше.</p>
+        <ul class="task-list__items" aria-live="polite" aria-label="Список задач"></ul>
+      </section>
+
+      <footer class="task-filters" aria-label="Фильтр задач">
+        <span class="task-filters__label">Фильтрация по статусам</span>
+        <div class="task-filters__buttons" role="group" aria-label="Режим отображения задач">
+          <button class="task-filters__button task-filters__button--active" data-filter="all" type="button"
+            aria-pressed="true" title="Показать все задачи">Все</button>
+          <button class="task-filters__button" data-filter="active" type="button" aria-pressed="false"
+            title="Показать незавершенные задачи">Активные</button>
+          <button class="task-filters__button" data-filter="completed" type="button" aria-pressed="false"
+            title="Показать завершенные задачи">Завершенные</button>
+        </div>
+      </footer>
+    </section>
+
+    <section class="control-panel task-create-page" id="task-create-page" aria-labelledby="task-create-title" hidden>
+      <div class="control-panel__heading">
+        <p class="control-panel__eyebrow">Планирование</p>
+        <h2 id="task-create-title">Новая задача</h2>
+      </div>
+      <form class="task-form" id="task-form">
+        <label class="visually-hidden" for="task-input">Название задачи</label>
+        <input class="control-panel__input" id="task-input" name="task" type="text"
+          placeholder="Например, подготовить отчет" autocomplete="off" required
+          title="Введите краткое название новой задачи" />
+        <button class="control-panel__button" type="submit" title="Добавить задачу в список">Сохранить задачу</button>
+      </form>
+      <a class="task-create-page__cancel" href="#tasks" title="Вернуться к списку задач">Отмена</a>
+    </section>
+  </main>
+</body>
+
+</html>
